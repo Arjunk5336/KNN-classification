@@ -48,8 +48,7 @@ knn_vis = KNeighborsClassifier(n_neighbors=best_k)
 knn_vis.fit(X_pca, y_encoded)
 x_min, x_max = X_pca[:, 0].min() - 1, X_pca[:, 0].max() + 1
 y_min, y_max = X_pca[:, 1].min() - 1, X_pca[:, 1].max() + 1
-xx, yy = np.meshgrid(np.linspace(x_min, x_max, 300),
-                     np.linspace(y_min, y_max, 300))
+xx, yy = np.meshgrid(np.linspace(x_min, x_max, 300),np.linspace(y_min, y_max, 300))
 Z = knn_vis.predict(np.c_[xx.ravel(), yy.ravel()])
 Z = Z.reshape(xx.shape)
 plt.figure(figsize=(10, 6))
